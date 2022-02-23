@@ -171,11 +171,16 @@ public class Customers {
         for (int i=0;i<all.size();i++)
         {
             customer=all.get(i);
-            if(id.equals(customer.getID())&&customer.hasMembership())
+            if(id.equals(customer.getID())&&(!customer.getPaymentMethod().isEmpty()))
             {
                 return true;
             }
+            if(id.equals(customer.getID())&&(customer.getPaymentMethod().isEmpty()))
+            {
+                return false;
+            }
         }
+        
         return false;
     }
     

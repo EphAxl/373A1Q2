@@ -167,21 +167,28 @@ public class Customers {
      */
     public Boolean isValidCustomer(String id)
     {
+        try
+        {
         Customer customer;
         for (int i=0;i<all.size();i++)
         {
             customer=all.get(i);
             if(id.equals(customer.getID())&&(!customer.getPaymentMethod().isEmpty()))
             {
-                return true;
-            }
-            if(id.equals(customer.getID())&&(customer.getPaymentMethod().isEmpty()))
-            {
                 return false;
             }
+            else
+            {
+                return true;
+            }
         }
-        
+        }
+        catch(NullPointerException e)
+                {
+                    return false;
+                }
         return false;
+        
     }
     
     /**

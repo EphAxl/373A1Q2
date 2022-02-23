@@ -199,6 +199,7 @@ public class Subscriber {
      */
     private void promptAddCustomer()
     {
+        {
         String id="";
         String membership="";
         String paymentOption="";
@@ -261,7 +262,7 @@ public class Subscriber {
         {
             while(true)
             {
-                System.out.println("ID of existing paying customer:");
+                System.out.println("ID of existing paying customer:\n");
                 existingCustomerID=scanner.nextLine();
                 if(customers.isValidCustomer(existingCustomerID))
                 {
@@ -276,7 +277,11 @@ public class Subscriber {
         //select supplements that customer is scribed to
         while(true)
         {
-            System.out.printf("Enter a supplementID or enter to skip");
+            System.out.printf("Enter a supplementID or enter to skip\n");
+            System.out.printf("Supplement(0)-Reader Supplement\n");
+            System.out.printf("Supplement(1)-Vitamin'supplement\n");
+            System.out.printf("Supplement(2)-Health Supplement\n");
+            System.out.printf("Supplement(3)-Life support\n");
             supplementID=scanner.nextLine();
             if(supplementID.equals(""))
             {
@@ -288,6 +293,7 @@ public class Subscriber {
                 {
                     System.out.printf("**\"%s\"added.\n",supplementID);
                     supplements.add(supplementID);
+                    
                 }
                 else
                 {
@@ -295,9 +301,12 @@ public class Subscriber {
                 }
             }
         }
-        
         customers.add(id,name,email,supplements,membership.equals("y"),paymentMethod,accountNo,existingCustomerID);
+        }
+        
+        
         System.out.println("Customer record added");
+        System.out.println("Press Enter to continue");
         
     }
     /**
